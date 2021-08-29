@@ -46,8 +46,8 @@ const todoSlice = createSlice({
     extraReducers:{
         [getTodosAsync.fulfilled]:(state,action) =>{
             return action.payload.todos;
-        }
-    }
+        },
+    },
 });
 
 export const {addTodo, toggleComplete, deleteTodo} = todoSlice.actions
