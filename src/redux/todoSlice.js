@@ -14,12 +14,7 @@ export const getTodosAsync = createAsyncThunk(
 const todoSlice = createSlice({
 
     name: "todos",
-    initialState:[
-        {id:1,title:'todo1', cantidad: 2 ,completed:false},
-        {id:2,title:'todo2', cantidad: 4,completed:false},
-        {id:3,title:'todo3',cantidad: 11,completed:true},
-        {id:4,title:'todo4',cantidad: 8,completed:true},
-    ],
+    initialState:[],
     reducers:{
         addTodo:(state, action)=>{
             const newTodo = {
@@ -44,8 +39,13 @@ const todoSlice = createSlice({
         },
     },
     extraReducers:{
+        [getTodosAsync.pending]:(state, action) =>{
+            console.log('Obteniendos datos...')
+        },
         [getTodosAsync.fulfilled]:(state,action) =>{
+            console.log('Datos obtenidos exitosamente!')
             return action.payload.todos;
+            
         },
     },
 });
