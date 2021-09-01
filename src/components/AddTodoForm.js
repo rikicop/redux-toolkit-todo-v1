@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {addTodo} from '../redux/todoSlice';
+import {addTodoAsync} from '../redux/todoSlice';
 
 const AddTodoForm = () => {
 	const [value, setValue] = useState('');
@@ -12,7 +12,7 @@ const AddTodoForm = () => {
 	const onSubmit = (event) => {
 		event.preventDefault();
 		/* title sería el payload */
-		dispatch(addTodo({
+		dispatch(addTodoAsync({
 			title: value,
 			cantidad: cantv
 		}));
